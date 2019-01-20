@@ -1,0 +1,2 @@
+# 这个文件的就是让git 不要保存这这些东西 下面就是要git 不要保存node_modules文件夹
+node_modules
