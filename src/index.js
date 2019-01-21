@@ -1,21 +1,12 @@
 const express = require('express');
-// 使用axios 调用open weather app 的数据
-const axios = require('axios');
 const app = express();
-app.get("/", (Req, res) => {
-    res.send("welcome");
-});
-// :cc country code  ：city city name
-app.get("/api/weather/:cc/:city", (req, res) => {
-    // res.send("weathersdfs");
-    const { cc, city } = req.params;
-    // get data from open weather app
-    // then 后面是接收数据
-    axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city},${cc}&appid=70524de0cb2bf075bed8d2716ac3d222`)
-        .then(response => {
-            // 把接收到的数据发到server上面
-            res.send(response.data);
-        })
-        .catch(err => console.log(err));
-});
-app.listen(3000, () => console.log(`app listen in port 3000`));
+// 这样他就会寻找.env 文件并且把内容读取出来 注意一定要在引入routes 文件前 引入 不然的话会undefined 最保险是放在第一行！！！
+require('dotenv').config()
+// 引入routes 文件
+const routes=require("./routes");
+// 引入端口号 要是没有设置过端口号那么就是3000
+var PORT= process.env.port||3000;
+// 所有路径都使用routes 文件
+app.use(routes);
+// 端口号 是无法用固定的端口号的 因为有可能3000 被占用了
+app.listen(PORT, () => console.log(`app listen in port ${PORT}`));
