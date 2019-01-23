@@ -4,8 +4,10 @@
   "description": "The purpose of this project is to gain some practical experience on how to build an basic API server with Express.js, by achieving the following tasks:",
   "main": "index.js",
   "scripts": {
+    "start": "pm2-runtime start ecosystem.config.js --env production",
     "dev": "nodemon src/index.js",
-    "start": "set PORT=3001 && node src/index.js"
+    "port": "set PORT=3001 && node src/index.js"
+    
   },
   "repository": {
     "type": "git",
@@ -20,12 +22,15 @@
   "homepage": "https://github.com/wzht1991/jr-weather-api-walkthrough#readme",
   "dependencies": {
     "axios": "^0.18.0",
+    "cors": "^2.8.5",
+    "country-list": "^2.1.0",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "helmet": "^3.15.0",
     "init": "^0.1.2",
     "morgan": "^1.9.1",
     "nodemon": "^1.18.9",
+    "pm2": "^3.2.9",
     "winston": "^3.1.0"
   },
   "devDependencies": {
