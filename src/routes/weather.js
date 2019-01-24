@@ -8,7 +8,7 @@ const router=express.Router();
 const axios = require('../utils/axios');
 const countryValidator=require('../middlewares/countryValidator');
 // appid 的环境变量
-const appid=process.env.appid;
+const appid=process.env.APPID;
 // :cc country code  ：city city name
 // 留意 这里的url 不需要再写 api/weather 了 因为routes.js 第11 行那里 已经写了
 router.get("/:cc/:city",countryValidator, (req, res,next) => {
