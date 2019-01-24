@@ -21,7 +21,7 @@ if(process.env.NODE_ENV==='development'){
 // 引入routes 文件
 const routes=require("./routes");
 // 引入端口号 要是没有设置过端口号那么就是3000
-var PORT= process.env.port||3000;
+var PORT= process.env.PORT||3000;
 // 所有路径都使用routes 文件
 app.use(routes);
 app.use(errorHandler);
